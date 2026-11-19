@@ -1,0 +1,79 @@
+{
+  "command": "python -m mallgnn demo --work-dir artifacts/release-demo",
+  "seed": 42,
+  "environment": {
+    "python": "3.12.14",
+    "scikit_learn": "1.8.0",
+    "device": "cpu",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "samples": {
+    "train": {
+      "shops": 1000,
+      "undirected_relations": 15675,
+      "positives": 212,
+      "positive_rate": 0.212
+    },
+    "valid": {
+      "shops": 1000,
+      "undirected_relations": 15675,
+      "positives": 191,
+      "positive_rate": 0.191
+    },
+    "test": {
+      "shops": 1000,
+      "undirected_relations": 15675,
+      "positives": 194,
+      "positive_rate": 0.194
+    }
+  },
+  "test_metrics": {
+    "mlp": {
+      "shops": 1000,
+      "positives": 194,
+      "positive_rate": 0.194,
+      "roc_auc": 0.7929766442403623,
+      "pr_auc": 0.4899273230020771,
+      "precision": 0.44813278008298757,
+      "recall": 0.5567010309278351,
+      "f1": 0.496551724137931,
+      "threshold": 0.6744306683540344,
+      "top_10pct_count": 100,
+      "precision_at_top_10pct": 0.52,
+      "recall_at_top_10pct": 0.26804123711340205
+    },
+    "graphsage": {
+      "shops": 1000,
+      "positives": 194,
+      "positive_rate": 0.194,
+      "roc_auc": 0.8170998439538513,
+      "pr_auc": 0.5335884228665141,
+      "precision": 0.45627376425855515,
+      "recall": 0.6185567010309279,
+      "f1": 0.5251641137855579,
+      "threshold": 0.6167421340942383,
+      "top_10pct_count": 100,
+      "precision_at_top_10pct": 0.62,
+      "recall_at_top_10pct": 0.31958762886597936
+    }
+  },
+  "training": {
+    "mlp": {
+      "best_epoch": 18,
+      "epochs_run": 38
+    },
+    "graphsage": {
+      "best_epoch": 18,
+      "epochs_run": 38
+    }
+  },
+  "checks": {
+    "unittest_count": 10,
+    "unittest_passed": true,
+    "checkpoint_reload_and_prediction": true,
+    "committed_toy_data_train_and_predict": true
+  },
+  "note": "Synthetic data only. These metrics do not measure real-world fulfillment risk performance."
+}
